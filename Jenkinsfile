@@ -12,7 +12,12 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+        stage('Deploy-to-docherhub') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+        stage('deploy-to-kuber')
             steps {
                 echo 'Deploying....'
             }

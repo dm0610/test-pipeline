@@ -17,7 +17,7 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        stage('deploy-to-kuber')
+        stage('deploy-to-kuber') {
             steps {
                 echo 'Deploying....'
             }

@@ -1,20 +1,36 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
+    agent {
+        any
+        }
+    }
+    environment {
+        YAMLS = 'https://github.com/dm0610/kube-labs.git'
+    }
+        stage('Then branch is master') {
+            when {
+                branch 'master' 
+            }
             steps {
-                echo 'Building..'
+                git([url: $YAMLS, branch: 'master'])
+                sh './shell/test.sh'
             }
         }
-        stage('Test') {
+        stage('Then branch is second') {
+            when {
+                branch 'second'  
+            }
             steps {
-                echo 'Testing..'
+                git([url: $YAMLS, branch: 'second'])
+                sh './shell/test.sh'
             }
         }
-        stage('Deploy') {
+        stage('Then branch is third') {
+            when {
+                branch 'third'  
+            }
             steps {
-                echo 'Deploying....'
+                git([url: $YAMLS, branch: 'third'])
+                sh './shell/test.sh'
             }
         }
     }

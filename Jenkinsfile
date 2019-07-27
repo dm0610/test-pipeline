@@ -1,12 +1,11 @@
 pipeline {
     agent {
         any
-        }
     }
     environment {
         YAMLS = 'https://github.com/dm0610/kube-labs.git'
     }
-    stages{
+    stages {
         stage('Deliver for development') {
             when {
                 branch 'master' 

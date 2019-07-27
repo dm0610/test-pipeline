@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                kubernetesDeploy configs: '/deploy/*', kubeconfigId: 'kubeconfig'
+                kubernetesDeploy configs: 'deploy/*', kubeconfigId: 'kubeconfig'
             }
         }
         stage('Test') {

@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Copy') {
             steps {
-                git url: 'git@github.com:dm0610/kube-labs.git'
+                git url: 'https://github.com/dm0610/kube-labs.git'
             }
         }
     stages {

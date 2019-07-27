@@ -1,6 +1,17 @@
 pipeline {
     agent any
-
+    
+    stages {
+        stage('get Path') {
+            steps {
+                sh "pwd"
+            }
+    stages {
+        stage('Copy') {
+            steps {
+                git url: 'https://github.com/dm0610/kube-labs.git'
+            }
+        }
     stages {
         stage('Build') {
             steps {
@@ -9,15 +20,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "pwd"
+                echo 'Testing..'
             }
         }
-        stage('Deploy-to-docherhub') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-        stage('deploy-to-kuber') {
+        stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }

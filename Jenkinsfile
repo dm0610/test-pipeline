@@ -1,31 +1,36 @@
 pipeline {
-    agent any
-    
-    stages {
-        stage('get Path') {
-            steps {
-                sh "pwd"
+    agent {
+        any
+        }
+    }
+    environment {
+        YAMLS = 'https://github.com/dm0610/kube-labs.git'
+    }
+        stage('Then branch is master') {
+            when {
+                branch 'master' 
             }
-    stages {
-        stage('Copy') {
             steps {
-                git url: 'https://github.com/dm0610/kube-labs.git'
+                git([url: $YAMLS, branch: 'master'])
+                sh './shell/test.sh'
             }
         }
-    stages {
-        stage('Build') {
+        stage('Then branch is second') {
+            when {
+                branch 'second'  
+            }
             steps {
-                echo 'Building..'
+                git([url: $YAMLS, branch: 'second'])
+                sh './shell/test.sh'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+        stage('Then branch is third') {
+            when {
+                branch 'third'  
             }
-        }
-        stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                git([url: $YAMLS, branch: 'third'])
+                sh './shell/test.sh'
             }
         }
     }

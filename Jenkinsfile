@@ -9,7 +9,7 @@ pipeline {
                 branch 'master' 
             }
             steps {
-                git([url: https://github.com/dm0610/kube-labs.git, branch: 'master'])
+                git([url: 'https://github.com/dm0610/kube-labs.git', branch: 'master'])
                 sh './shell/test.sh'
             }
         }
@@ -18,7 +18,7 @@ pipeline {
                 branch 'second'  
             }
             steps {
-                git([url: https://github.com/dm0610/kube-labs.git, branch: 'second'])
+                git([url: 'https://github.com/dm0610/kube-labs.git', branch: 'second'])
                 sh './shell/test.sh'
             }
         }
@@ -27,7 +27,7 @@ pipeline {
                 branch 'third'  
             }
             steps {
-                git([url: https://github.com/dm0610/kube-labs.git, branch: 'third'])
+                git([url: 'https://github.com/dm0610/kube-labs.git', branch: 'third'])
                 sh './shell/test.sh'
             }
         }

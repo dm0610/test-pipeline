@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                kubernetesDeploy configs: '', kubeConfig: [path: ''], kubeconfigId: 'kubeconfig', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+                kubernetesDeploy configs: '/deploy/*', kubeconfigId: 'kubeconfig'
             }
         }
         stage('Test') {

@@ -4,7 +4,7 @@ pipeline {
         YAMLS = 'https://github.com/dm0610/kube-labs.git'
     } 
     stages {
-        stage('Deliver for development') {
+        stage('Deliver for master') {
             when {
                 branch 'master' 
             }
@@ -13,21 +13,21 @@ pipeline {
                 sh './shell/test.sh'
             }
         }
-        stage('Deploy for production') {
+        stage('Deploy for second') {
             when {
-                branch 'second'  
+                branch 'second-branch'  
             }
             steps {
-                git([url: 'https://github.com/dm0610/kube-labs.git', branch: 'second'])
+                git([url: 'https://github.com/dm0610/kube-labs.git', branch: 'second-branch'])
                 sh './shell/test.sh'
             }
         }
-        stage('Deploy for production') {
+        stage('Deploy for third') {
             when {
-                branch 'third'  
+                branch 'third-branch'  
             }
             steps {
-                git([url: 'https://github.com/dm0610/kube-labs.git', branch: 'third'])
+                git([url: 'https://github.com/dm0610/kube-labs.git', branch: 'third-branch'])
                 sh './shell/test.sh'
             }
         }

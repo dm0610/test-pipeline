@@ -1,7 +1,6 @@
 pipeline {
     agent {
         any
-        }
     }
     environment {
         YAMLS = 'https://github.com/dm0610/kube-labs.git'

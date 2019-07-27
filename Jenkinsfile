@@ -11,7 +11,7 @@ pipeline {
                 branch 'master' 
             }
             steps {
-                git([url: $YAMLS, branch: 'master'])
+                git([url: $YAMLS, branch: 'master', credentialsId: 'd90e03eb-0141-4f18-ba1d-973736a8febd'])
                 sh './shell/test.sh'
             }
         }
@@ -20,7 +20,7 @@ pipeline {
                 branch 'second'  
             }
             steps {
-                git([url: $YAMLS, branch: 'second'])
+                git([url: $YAMLS, branch: 'master', credentialsId: 'd90e03eb-0141-4f18-ba1d-973736a8febd'])
                 sh './shell/test.sh'
             }
         }
@@ -29,7 +29,7 @@ pipeline {
                 branch 'third'  
             }
             steps {
-                git([url: $YAMLS, branch: 'third'])
+                git([url: $YAMLS, branch: 'master', credentialsId: 'd90e03eb-0141-4f18-ba1d-973736a8febd'])
                 sh './shell/test.sh'
             }
         }

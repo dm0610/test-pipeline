@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Then branch is second') {
             when {
-                branch 'second'  
+                branch 'second-branch'  
             }
             steps {
                 git([url: $YAMLS, branch: 'master', credentialsId: 'd90e03eb-0141-4f18-ba1d-973736a8febd'])
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Then branch is third') {
             when {
-                branch 'third'  
+                branch 'third-branch'  
             }
             steps {
                 git([url: $YAMLS, branch: 'master', credentialsId: 'd90e03eb-0141-4f18-ba1d-973736a8febd'])

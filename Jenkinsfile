@@ -6,6 +6,7 @@ pipeline {
             steps {
                 sh "pwd"
             }
+        }
         stage('Copy') {
             steps {
                 git url: 'https://github.com/dm0610/kube-labs.git'
